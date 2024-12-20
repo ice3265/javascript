@@ -32,3 +32,4 @@ restartButton.addEventListener("click", () => {
 
 // 初回カウントダウンを開始
 startCountdown();
+

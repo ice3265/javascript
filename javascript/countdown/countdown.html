@@ -4,10 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>カウントダウン</title>
+  <style>
+    /* カウントダウンタイトルと秒数のスタイリング */
+     #countdowntitle{
+       font-size: 2em;
+      text-align: center;
+     }
+     #countdown {
+      color: red;
+      font-size: 2em;
+      text-align: center;
+     }
+
+    /* ボタンのスタイリング */
+    #restartButton {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <h1 id="countdown">10</h1>
-  <button id="restartButton" style="display: none;">再開</button>
+  <h1 id="countdownTitle">カウントダウン</h1>
+  <h2 id="countdown">10</h2>
+  <button id="restartButton">再開</button>
   <script src="countdown.js"></script>
 </body>
 </html>
+

@@ -44,24 +44,22 @@ async function displayRanking() {
     tracks.forEach((track, index) => {
       const listItem = document.createElement("li");
 
-      // アルバムのジャケット画像
+      // ジャケット画像をリンクとして表示
+      const albumLink = document.createElement("a");
+      albumLink.href = track.external_urls.spotify;
+      albumLink.target = "_blank"; // 新しいタブで開く
+
       const albumImage = document.createElement("img");
       albumImage.src = track.album.images[0]?.url || ""; // 画像が存在しない場合の安全策
+
+      albumLink.appendChild(albumImage);
 
       // 楽曲名と人気度
       const trackInfo = document.createElement("span");
       trackInfo.textContent = `${index + 1}. ${track.name} (${track.popularity} pts)`;
 
-      // Spotifyリンク
-      const spotifyLink = document.createElement("a");
-      spotifyLink.href = track.external_urls.spotify;
-      spotifyLink.target = "_blank"; // 新しいタブで開く
-      spotifyLink.className = "spotify-link";
-      spotifyLink.textContent = "Spotifyで開く";
-
-      listItem.appendChild(albumImage); // 画像をリストアイテムに追加
+      listItem.appendChild(albumLink); // ジャケットリンクをリストアイテムに追加
       listItem.appendChild(trackInfo); // テキスト情報を追加
-      listItem.appendChild(spotifyLink); // Spotifyリンクを追加
 
       rankingList.appendChild(listItem); // リストアイテムをランキングに追加
     });
@@ -73,3 +71,4 @@ async function displayRanking() {
 
 // 初期化
 displayRanking();
+
